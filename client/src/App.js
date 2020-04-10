@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import axios from "axios";
 import { Players } from "./components/Players";
+import { SearchForm } from "./components/SearchForm";
 
 // function App() {
 //   return (
@@ -43,12 +44,23 @@ class App extends React.Component {
       .catch(err => console.error(err));
   }
 
+  handleSearch = input => {
+    this.setState({
+      players: this.state.players.filter(player => {
+        return player.name.toUpperCase().includes(input);
+      })
+    });
+  };
+
+
   render() {
     console.log(this.state.data);
     return (
       <div className="App">
         <h1>Players</h1>
+        <SearchForm handleSearch={this.handleSearch} />
         {this.state.players.map(player => <li key={player.id}>
+          
          
         <h2>Name: {player.name}</h2>
         <h3>Country: {player.country}</h3>
@@ -60,6 +72,21 @@ class App extends React.Component {
     );
   }
 }
+
+// render() {
+//   // console.log(this.state.data);
+//   return (
+//     <div className="App">
+//       <h1>Sprint Review</h1>
+//       <SearchForm handleSearch={this.handleSearch} />
+//       {this.state.players.map(player => {
+//         return <Players players={player} />;
+//       })}
+//     </div>
+//   );
+// }
+// }
+
 
 export default App;
 
