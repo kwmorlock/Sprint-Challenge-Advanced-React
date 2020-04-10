@@ -1,31 +1,8 @@
 import React from 'react';
 import './App.css';
 import axios from "axios";
-import { Players } from "./components/Players";
+// import { Players } from "./components/Players";
 import { SearchForm } from "./components/SearchForm";
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
 
 class App extends React.Component {
   constructor(props) {
@@ -38,7 +15,7 @@ class App extends React.Component {
     axios
       .get("http://localhost:5000/api/players")
       .then(res => {
-        console.log(res);
+        // console.log(res);
         this.setState({players: res.data});
       })
       .catch(err => console.error(err));
@@ -54,17 +31,17 @@ class App extends React.Component {
 
 
   render() {
-    console.log(this.state.data);
+    // console.log(this.state.data);
     return (
-      <div className="App">
-        <h1>Players</h1>
+      <div className="App" data-testid="app" id="app">
+        <h1 data-testid="players" id="players" >Players</h1>
         <SearchForm handleSearch={this.handleSearch} />
         {this.state.players.map(player => <li key={player.id}>
           
          
-        <h2>Name: {player.name}</h2>
+        <h2 data-testid="name" id="name" >Name: {player.name}</h2>
         <h3>Country: {player.country}</h3>
-        <h4>Searchs: {player.searches}</h4>
+        <h4>Searches: {player.searches}</h4>
         <h5>Id: {player.id}</h5>
         </li>
         )}
