@@ -33,7 +33,7 @@ Follow these steps to set up and work on your project:
 
 - [X] Create a forked copy of this project.
 - [X] Add TL as collaborator on Github.
-- [ ] Clone your OWN version of Repo. **(Not Lambda's by mistake!)**
+- [X] Clone your OWN version of Repo. **(Not Lambda's by mistake!)**
 - [ ] Create a new Branch locally: `git checkout -b <firstName-lastName>`.
 - [ ] Run `npm install` to download dependencies.
 - [ ] Run the server using `npm start` or `node server.js`.
