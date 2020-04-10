@@ -47,7 +47,7 @@ class App extends React.Component {
   handleSearch = input => {
     this.setState({
       players: this.state.players.filter(player => {
-        return player.name.toUpperCase().includes(input);
+        return player.name.toLowerCase().includes(input);
       })
     });
   };

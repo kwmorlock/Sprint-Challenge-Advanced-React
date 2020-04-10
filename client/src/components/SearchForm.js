@@ -16,7 +16,7 @@ export function SearchForm(props) {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <div onClick={toggleMode}>DarkMode</div>
+      <div onClick={toggleMode}>Pink Mode</div>
       <input
         name="search"
         placeholder="Search"
